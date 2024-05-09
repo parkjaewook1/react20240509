@@ -4,38 +4,46 @@
 // component 는 return을 가진 함수
 
 function MyComponent() {
-  // return : 화면에 출력할 코드
-  return <div>hello component</div>;
-}
-
-function MyComp() {
-  // JSX 코드 : <div></div>
-
-  const myElem = <h1>hi JSX</h1>;
-  return myElem;
-}
-function App() {
-  // 한 줄 주석
-
-  /*
-  // 여러 줄 주석
-  */
-
-  // component 사용시 종료 태그 생략할 수 없음
-  // br 같은 빈요소는 시작태그에서 꼭 종료
+  // 최상위 컴포넌트 사용하지 않을 때 -> fragment 사용
 
   return (
     <>
-      <div>
-        {/* jsx 내에서의 주석 */}
-
-        <h1>hello react</h1>
-        <h2>hi react</h2>
-        <h3>react </h3>
-        <MyComponent />
-        <MyComp />
-      </div>
+      <p>Lorem ipsum dolor.</p>
+      <p>Apreiam, distinctio,nemo</p>
     </>
+  );
+}
+
+function MyComp() {
+  // 최상위 컴포넌트는 1개임
+  // <div></div> 로 감싸주면 괜찮
+
+  return (
+    <div>
+      <p>Lorem ipsum.</p>
+      <p>Cupiditate, voluptatem?</p>
+    </div>
+  );
+}
+
+function MyTag() {
+  // jsx 코드가 여러 줄일 때 () 사용
+  return (
+    <div>
+      hello tag
+      <p>Lorem ipsum.</p>
+      <p>Est, quos?</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <MyTag />
+      <MyComp />
+      <MyComponent />
+    </div>
   );
 }
 
