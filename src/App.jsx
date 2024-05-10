@@ -1,18 +1,26 @@
 import React from "react";
-
-function MyComp({ name, age, someProp, otherProp }) {
-  console.log("name", name);
-  console.log("age", age);
-  console.log("someProp", someProp); // true :값없이 작성되면 true
-  console.log("otherProp", otherProp);
-  return <div></div>;
-}
+import { Button, ChakraProvider } from "@chakra-ui/react";
 
 function App(props) {
   return (
-    <div>
-      <MyComp name="son" age={30} otherProp={true} />
-    </div>
+    <ChakraProvider>
+      <div>
+        <Button colorScheme={"blue"}> 클릭1 </Button>
+        <Button colorScheme={"orange"}> 클릭2 </Button>
+        <Button
+          sx={{
+            color: "skyblue",
+            fontSize: "40px",
+            padding: "20px",
+            margin: "20px",
+          }}
+          colorScheme={"gray"}
+        >
+          {" "}
+          클릭3{" "}
+        </Button>
+      </div>
+    </ChakraProvider>
   );
 }
 
