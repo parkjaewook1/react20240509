@@ -1,5 +1,7 @@
 import React from "react";
 
-export function MyComp() {
-  return <div>hello mycomp</div>;
+function MyComp(props) {
+  return <div></div>;
 }
+
+export default MyComp;
