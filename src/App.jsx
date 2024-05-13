@@ -9,7 +9,6 @@ function MyNumber({ number }) {
 }
 
 function App(props) {
-  return <div></div>;
   const [number, setNumber] = useState(0);
 
   function handleNumberChange() {
