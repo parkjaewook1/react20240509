@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+
+function MyComp() {
+  const [count, setCount] = useState(0);
+
+  // DOM : Document Object Model
+  return (
+    <div>
+      <div>{count}</div>
+      <div>
+        <button onClick={() => setCount(count + 1)}>UP</button>
+      </div>
+    </div>
+  );
+}
 
 function App(props) {
-  return <div></div>;
+  return (
+    <div>
+      <MyComp />
+      <hr />
+      <MyComp />
+    </div>
+  );
 }
 
 export default App;
