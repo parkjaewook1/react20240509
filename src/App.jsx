@@ -4,59 +4,64 @@ import {
   Link,
   Outlet,
   RouterProvider,
+  useSearchParams,
 } from "react-router-dom";
 
-function SpringRoot() {
+function Root() {
   return (
     <div>
-      <div
-        style={{
-          padding: "10px",
-          backgroundColor: "#eee",
-          display: "flex",
-          gap: "5px",
-        }}
-      >
-        {/*<div>*/}
-        {/*  <a href="/spring/learn">LEARN</a>*/}
-        {/*</div>*/}
-        {/*<div>*/}
-        {/*  <a href="/spring/api">API</a>*/}
-        {/*</div>*/}
-        {/*<div>*/}
-        {/*  <a href="/spring/doc">DOC</a>*/}
-        {/*</div>*/}
-
-        {/* a태그 대신 Link 컴포넌트 사용 */}
-        <div>
-          <Link to="/spring">HOME</Link>
-        </div>
-        <div>
-          <Link to="/spring/learn">LEARN</Link>
-        </div>
-        <div>
-          <Link to="/spring/api">API</Link>
-        </div>
-        <div>
-          <Link to="/spring/doc">DOC</Link>
-        </div>
+      <div>
+        <Link to="/">HOME</Link>
+        <Link to="/list">LIST</Link>
       </div>
-      <div style={{ marginTop: "20px" }}>
+      <hr />
+      <div>
         <Outlet />
       </div>
     </div>
   );
 }
 
+function BoardList() {
+  return (
+    <div>
+      <div>
+        <Link to="/board?id=1"> 1번 게시물 보기</Link>
+      </div>
+      <div>
+        <Link to="/board?id=2"> 2번 게시물 보기</Link>
+      </div>
+      <div>
+        <Link to="/board?id=3"> 3번 게시물 보기</Link>
+      </div>
+    </div>
+  );
+}
+
+function BoardView() {
+  // /board?id=3
+  // query string 읽기
+  const [params] = useSearchParams();
+  return <div>{params.get("id")}번 게시물 보기</div>;
+}
+
 const router = createBrowserRouter([
   {
-    path: "spring",
-    element: <SpringRoot />,
+    path: "/",
+    element: <Root />,
     children: [
-      { index: true, element: <div> spring main page</div> },
-      { path: "api", element: <div>api page</div> },
-      { path: "doc", element: <div>doc page</div> },
-      { path: "learn", element: <div>learn page</div> },
+      {
+        index: true,
+        element: <div>MAIN PAGE</div>,
+      },
+      {
+        path: "board",
+        element: <BoardView />,
+      },
+      {
+        path: "list",
+        element: <BoardList />,
+      },
     ],
   },
 ]);
