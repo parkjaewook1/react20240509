@@ -1,5 +1,10 @@
 import React from "react";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Link,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 
 function SpringRoot() {
   return (
@@ -8,9 +13,30 @@ function SpringRoot() {
         style={{
           padding: "10px",
           backgroundColor: "#eee",
+          display: "flex",
+          gap: "5px",
         }}
       >
-        NAVER
+        {/*<div>*/}
+        {/*  <a href="/spring/learn">LEARN</a>*/}
+        {/*</div>*/}
+        {/*<div>*/}
+        {/*  <a href="/spring/api">API</a>*/}
+        {/*</div>*/}
+        {/*<div>*/}
+        {/*  <a href="/spring/doc">DOC</a>*/}
+        {/*</div>*/}
+
+        {/* a태그 대신 Link 컴포넌트 사용 */}
+        <div>
+          <Link to="/spring/learn">LEARN</Link>
+        </div>
+        <div>
+          <Link to="/spring/api">API</Link>
+        </div>
+        <div>
+          <Link to="/spring/doc">DOC</Link>
+        </div>
       </div>
       <div style={{ marginTop: "20px" }}>
         <Outlet />
@@ -25,7 +51,7 @@ const router = createBrowserRouter([
     element: <SpringRoot />,
     children: [
       { path: "api", element: <div>api page</div> },
-      { path: "odc", element: <div>doc page</div> },
+      { path: "doc", element: <div>doc page</div> },
       { path: "learn", element: <div>learn page</div> },
     ],
   },
