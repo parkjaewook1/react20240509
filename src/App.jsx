@@ -19,6 +19,9 @@ function ReactHome() {
         }}
       >
         <div>
+          <Link to="/react">HOME</Link>
+        </div>
+        <div>
           <Link to="/react/doc">DOC</Link>
         </div>
         <div>
@@ -41,6 +44,7 @@ const router = createBrowserRouter([
     path: "/react",
     element: <ReactHome />,
     children: [
+      { index: true, element: <div>react main page</div> },
       {
         path: "doc",
         element: <div>doc page</div>,
