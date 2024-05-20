@@ -11,7 +11,6 @@ function App(props) {
         {names.map((name, index) => (
           <li key={index}>{name}</li>
         ))}
-        ;
       </ul>
     </div>
   );
