@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChakraProvider, useDisclosure, useToast } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faApple } from "@fortawesome/free-brands-svg-icons";
 
 function App(props) {
   const [count, setCount] = useState(0);
@@ -14,6 +16,8 @@ function App(props) {
   if (true) {
     const [text, setText] = useState("");
   }
+
+  <FontAwesomeIcon icon={faApple} />;
 
   return (
     <ChakraProvider>
